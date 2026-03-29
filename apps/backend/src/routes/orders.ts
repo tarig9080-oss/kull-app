@@ -1,6 +1,6 @@
 import { Router, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-import { COMMISSION_RATE } from '@kull/shared';
+import { COMMISSION_RATE } from '../shared';
 import { authenticate, AuthRequest } from '../middleware/auth';
 
 const router = Router();

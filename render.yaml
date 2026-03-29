@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: kull-backend
+    runtime: node
+    rootDir: apps/backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run db:migrate && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PROVIDER
+        value: postgresql
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kull-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3001
+      - key: FRONTEND_URL
+        value: https://dist-tarig-taha.vercel.app
+
+databases:
+  - name: kull-db
+    databaseName: kulldb
+    plan: free
