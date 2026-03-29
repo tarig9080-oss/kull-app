@@ -14,7 +14,7 @@ export const PAYMENT_METHODS = {
   bank_khartoum: {
     nameAr: 'بنك الخرطوم',
     nameEn: 'Bank of Khartoum',
-    accountNumber: 'SD29 6000 0001 2345 6789 01',
+    accountNumber: '3274271',
     accountName: 'تطبيق كُـل للتجارة',
     instructions: 'قم بالتحويل إلى الحساب أعلاه وارفع إيصال الدفع',
   },
