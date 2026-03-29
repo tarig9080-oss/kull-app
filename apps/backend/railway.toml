@@ -1,0 +1,10 @@
+# إعداد Railway للـ Backend
+# ارفع هذا الملف في apps/backend/
+
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm install && pnpm run build"
+
+[deploy]
+startCommand = "pnpm run db:migrate && pnpm start"
+restartPolicyType = "on_failure"

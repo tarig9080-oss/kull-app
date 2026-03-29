@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "كُـل",
+    "slug": "kull-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ea580c"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "sd.kull.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ea580c"
+      },
+      "package": "sd.kull.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font"
+    ],
+    "scheme": "kull",
+    "extra": {
+      "apiUrl": "http://localhost:3001/api"
+    }
+  }
+}

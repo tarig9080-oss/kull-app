@@ -1,0 +1,16 @@
+{
+  "name": "kull-app",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "dev:mobile": "pnpm --filter mobile start",
+    "build:web": "pnpm --filter web build",
+    "build:backend": "pnpm --filter backend build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = env("DATABASE_PROVIDER")
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  phone     String
+  password  String
+  role      String   @default("buyer")
+  lang      String   @default("ar")
+  createdAt DateTime @default(now())
+
+  products Product[]
+  orders   Order[]
+  reviewsGiven    Review[] @relation("Reviewer")
+  reviewsReceived Review[] @relation("Reviewee")
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  title        String
+  description  String
+  price        Float
+  images       String   @default("[]")
+  warrantyDays Int      @default(0)
+  status       String   @default("active")
+  state        String   @default("")
+  sellerId     String
+  seller       User     @relation(fields: [sellerId], references: [id])
+  createdAt    DateTime @default(now())
+
+  orders Order[]
+}
+
+model Order {
+  id             String   @id @default(uuid())
+  buyerId        String
+  productId      String
+  amount         Float
+  commission     Float
+  sellerAmount   Float
+  status         String   @default("pending")
+  deliveryMethod String?
+  escrowStatus   String   @default("held")
+  createdAt      DateTime @default(now())
+
+  buyer   User    @relation(fields: [buyerId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+  payment Payment?
+  reviews Review[]
+}
+
+model Payment {
+  id             String   @id @default(uuid())
+  orderId        String   @unique
+  method         String
+  transactionRef String?
+  receiptUrl     String?
+  status         String   @default("pending")
+  paidAt         DateTime?
+
+  order Order @relation(fields: [orderId], references: [id])
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  orderId    String
+  reviewerId String
+  revieweeId String
+  rating     Int
+  comment    String?
+  createdAt  DateTime @default(now())
+
+  order    Order @relation(fields: [orderId], references: [id])
+  reviewer User  @relation("Reviewer", fields: [reviewerId], references: [id])
+  reviewee User  @relation("Reviewee", fields: [revieweeId], references: [id])
+}

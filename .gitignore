@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+
+# Environment files (مهم جداً - لا ترفع هذه على GitHub)
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Database
+*.db
+*.db-journal
+dev.db
+
+# Uploads (الصور المرفوعة محلياً)
+apps/backend/uploads/*
+!apps/backend/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Expo
+apps/mobile/.expo/
+apps/mobile/dist/
