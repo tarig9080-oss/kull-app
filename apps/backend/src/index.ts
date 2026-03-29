@@ -8,6 +8,7 @@ import orderRoutes from './routes/orders';
 import paymentRoutes from './routes/payments';
 import adminRoutes from './routes/admin';
 import reviewRoutes from './routes/reviews';
+import setupRoutes from './routes/setup';
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/setup', setupRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', app: 'كُـل API', version: '1.0.0' });
