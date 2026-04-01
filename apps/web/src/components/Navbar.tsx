@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">ك</div>
+            <img src="/kull-logo.svg" alt="كُـل" className="w-10 h-10 rounded-xl shadow-md" />
             <span className="text-xl font-bold text-gray-900">{t('app.name')}</span>
           </Link>
 

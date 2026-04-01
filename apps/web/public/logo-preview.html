@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>لوقو كُـل</title>
+  <style>
+    body { margin: 0; background: #f0f0f0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: Arial, sans-serif; gap: 30px; }
+    h2 { color: #333; }
+    .logo-box { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .logo-small { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    a.download { background: #1a7a4a; color: white; padding: 12px 30px; border-radius: 10px; text-decoration: none; font-size: 16px; }
+    a.download:hover { background: #0d4f30; }
+  </style>
+</head>
+<body>
+  <h2>لوقو تطبيق كُـل</h2>
+
+  <!-- نسخة كبيرة 400x400 -->
+  <div class="logo-box">
+    <img src="kull-logo.svg" width="400" height="400" alt="كُـل لوقو" id="logo400" />
+  </div>
+
+  <!-- نسخة متوسطة -->
+  <div class="logo-small">
+    <img src="kull-logo.svg" width="200" height="200" alt="كُـل لوقو" />
+  </div>
+
+  <!-- نسخة صغيرة (آيكون) -->
+  <div class="logo-small">
+    <img src="kull-logo.svg" width="64" height="64" alt="كُـل لوقو" />
+  </div>
+
+  <a class="download" href="kull-logo.svg" download="kull-logo.svg">تحميل اللوقو (SVG)</a>
+
+  <script>
+    // تحميل PNG
+    function downloadPNG() {
+      const img = document.getElementById('logo400');
+      const canvas = document.createElement('canvas');
+      canvas.width = 400; canvas.height = 400;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, 400, 400);
+      const link = document.createElement('a');
+      link.download = 'kull-logo.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+  <button onclick="downloadPNG()" style="background:#d4a017;color:white;border:none;padding:12px 30px;border-radius:10px;font-size:16px;cursor:pointer;">تحميل اللوقو (PNG)</button>
+</body>
+</html>
